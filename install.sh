@@ -7,7 +7,6 @@ if [ "$EUID" = 0 ]; then
     exit 1
 fi
 
-PROGRAMS=false
 CONFIGURE_GIT=false
 CONFIGURE_VIM=false
 CONFIGURE_ZSH=false
@@ -23,10 +22,6 @@ POSITIONAL=()
 while [[ $# -gt 0 ]]; do
     key="$1"
     case $key in
-        -p | --programs)
-            PROGRAMS=true
-            shift # past argument
-            ;;
         -g | --configure-git)
             CONFIGURE_GIT=true
             shift # past argument
@@ -40,11 +35,10 @@ while [[ $# -gt 0 ]]; do
             shift # past argument
             ;;
         -h | --help)
-            printf "Usage: %s [-o] [-p] [-g] [-z] [-v]\n
+            printf "Usage: %s [-g] [-z] [-v]\n
 This script sets up your OS with a reasonable config and programs. 
 Via flags, you have the option to execute a subset of the script steps. 
 For more details, see README.md.\n
--p      Install programs
 -g      Git configuration
 -v      Neovim configuration
 -z      Oh-my-zsh configuration\n" "$0"
@@ -58,30 +52,16 @@ For more details, see README.md.\n
 done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
-if [ "$PROGRAMS" = false ] && [ "$CONFIGURE_GIT" = false ] &&
+if [ "$CONFIGURE_GIT" = false ] &&
    [ "$CONFIGURE_ZSH" = false ] && [ "$CONFIGURE_VIM" = false ]; then
-    PROGRAMS=true
     CONFIGURE_GIT=true
     CONFIGURE_ZSH=true
     CONFIGURE_VIM=true
 fi
 
-install_programs() {
-    echo "Installing recommended programs"
-
-    sudo apt update && sudo apt upgrade
-
-    # Other tools
-    sudo apt install -y p7zip-full htop iotop bmon
-
-    # Essential dev tools
-    sudo apt install -y neovim zsh git terminator curl build-essential tree
-    sudo apt install -y powerline fonts-powerline
-}
-
 configure_git() {
     echo "Configuring git"
-    sudo apt install -y git lsb-release
+    sudo apt update && sudo apt install -y git lsb-release
 
     UBUNTU_VERSION=$(lsb_release -rs | cut -d. -f1)
     if [ "$UBUNTU_VERSION" -ge 24 ]; then
@@ -125,7 +105,7 @@ source ~/.vimrc" >~/.config/nvim/init.vim
 
 configure_oh_my_zsh() {
     echo "Configuring Oh-my-zsh"
-    sudo apt install -y zsh wget powerline
+    sudo apt install -y zsh wget powerline fonts-powerline
 
     # Download and install oh-my-zsh, but do not yet run it (would break this script)
     RUNZSH=no sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -147,7 +127,6 @@ configure_oh_my_zsh() {
     echo "Feel free to try out zsh by opening a new terminal (if you made zsh your default shell), or by executing 'zsh' in this terminal. powerlevel10k will ask you a couple of questions on the first zsh start."
 }
 
-if [ "$PROGRAMS" = true ]; then install_programs; fi
 if [ "$CONFIGURE_GIT" = true ]; then configure_git; fi
 if [ "$CONFIGURE_VIM" = true ]; then configure_neovim; fi
 if [ "$CONFIGURE_ZSH" = true ]; then configure_oh_my_zsh; fi

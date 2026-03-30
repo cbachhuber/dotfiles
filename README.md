@@ -18,7 +18,6 @@ By default, [install.sh](./install.sh) will work through all setup steps such a 
 If you only want select a subset of these steps, use the below flags.
 As soon as a flag is given, the other steps are not implicitly executed, they need to be called explicitly per flag as well.
 
-- Flag `-p` or `--programs` installs programs such as [chromium](https://chromium.googlesource.com/chromium/src/), [vlc](https://www.videolan.org/), [gimp](https://www.gimp.org/), and dev tools such as python3, [terminator](https://gnometerminator.blogspot.com/p/introduction.html), git, and [zsh](https://en.wikipedia.org/wiki/Z_shell).
 - Flag `-g` or `--configure-git` guides you through common git configuration steps such as setting up your git user name and mail, git pager, global excludesFile, and git aliases.
 - Flag `-v` or `--configure-vim` guides you through common [neovim](https://github.com/neovim/neovim) configuration steps such as sourcing `~/.zshrc` and installing essential plugins such as [vim-fugitive](https://github.com/tpope/vim-fugitive), [vim-airline](https://github.com/vim-airline/vim-airline), and [vim-nerdtree](https://github.com/scrooloose/nerdtree).
 - Flag `-z` or `--configure-zsh` guides you through common zsh and [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) configuration steps such as setting zsh as your default shell and installing oh-my-zsh plugins such as [Powerlevel 10k](https://github.com/romkatv/powerlevel10k) and [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions).
@@ -26,7 +25,7 @@ As soon as a flag is given, the other steps are not implicitly executed, they ne
 
 ## Compatibility
 
-|              |     Programs     |      Git         |         Vim      |        ZSH       |
-|--------------|------------------|------------------|------------------|------------------|
-| Ubuntu 22.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-| Ubuntu 24.04 |    :question:    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|              |      Git         |         Vim      |        ZSH       |
+|--------------|------------------|------------------|------------------|
+| Ubuntu 22.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Ubuntu 24.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|

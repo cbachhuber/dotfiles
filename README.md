@@ -25,9 +25,10 @@ You will be asked to enter your sudo password for the apt operations.
 
 ### Setup arguments
 
-By default, `setup.sh` will work through all setup steps such a OS tweaks, program installation, git configuration etc. If you only want select a subset of these steps, use the below flags. As soon as a flag is given, the other steps are not implicitly executed, they need to be called explicitly per flag as well.
+By default, `setup.sh` will work through all setup steps such a program installation, git configuration etc.
+If you only want select a subset of these steps, use the below flags.
+As soon as a flag is given, the other steps are not implicitly executed, they need to be called explicitly per flag as well.
 
-- Flag `-o` or `--os-tweaks` walks you through OS tweaking steps such as key repeat adjustment and configuration of [gnome shell extensions](https://extensions.gnome.org/).
 - Flag `-p` or `--programs` installs programs such as [chromium](https://chromium.googlesource.com/chromium/src/), [vlc](https://www.videolan.org/), [gimp](https://www.gimp.org/), and dev tools such as python3, [terminator](https://gnometerminator.blogspot.com/p/introduction.html), git, and [zsh](https://en.wikipedia.org/wiki/Z_shell).
 - Flag `-g` or `--configure-git` guides you through common git configuration steps such as setting up your git user name and mail, git pager, global excludesFile, and git aliases.
 - Flag `-v` or `--configure-vim` guides you through common [neovim](https://github.com/neovim/neovim) configuration steps such as sourcing `~/.zshrc` and installing essential plugins such as [vim-fugitive](https://github.com/tpope/vim-fugitive), [vim-airline](https://github.com/vim-airline/vim-airline), and [vim-nerdtree](https://github.com/scrooloose/nerdtree).
@@ -36,7 +37,7 @@ By default, `setup.sh` will work through all setup steps such a OS tweaks, progr
 
 ## Compatibility
 
-|              |      OS Tweaks   |     Programs     |      Git         |         Vim      |        ZSH       |
-|--------------|------------------|------------------|------------------|------------------|------------------|
-| Ubuntu 18.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-| Ubuntu 20.04 |   :question:     |    :question:    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|              |     Programs     |      Git         |         Vim      |        ZSH       |
+|--------------|------------------|------------------|------------------|------------------|
+| Ubuntu 22.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Ubuntu 24.04 |    :question:    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|

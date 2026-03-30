@@ -1,4 +1,4 @@
-# Ubuntu Post Installation Script and Config Files
+# My Dotfiles
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 
@@ -14,7 +14,7 @@ Clone the repository and run
 
 ### Setup arguments
 
-By default, [install.sh](./install.sh) will work through all setup steps such a program installation, git configuration etc.
+By default, [install.sh](./install.sh) will work through all setup steps such a zsh, git, and vim configuration.
 If you only want select a subset of these steps, use the below flags.
 As soon as a flag is given, the other steps are not implicitly executed, they need to be called explicitly per flag as well.
 

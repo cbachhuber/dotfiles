@@ -81,13 +81,17 @@ install_programs() {
 
 configure_git() {
     echo "Configuring git"
-    sudo apt install -y git
-    # Git configuration
+    sudo apt install -y git lsb-release
+
+    UBUNTU_VERSION=$(lsb_release -rs | cut -d. -f1)
+    if [ "$UBUNTU_VERSION" -ge 24 ]; then
+        sudo apt install -y git-delta
+    fi
+
     read -r -p "Enter your git user name (your full name, e.g. 'Max Maier': " GIT_NAME
     read -r -p "Enter your git mail address: " GIT_MAIL
     git config --global user.name "$GIT_NAME"
     git config --global user.email "$GIT_MAIL"
-    git config --global core.pager 'less -F -X' # use less only if you output does not fit to the screen
     git config --global core.excludesFile "$CONFIG_FOLDER"/global_gitignore
     echo "[include]
     	path = /home/$(whoami)/.dotfiles/config/gitconfig" >>~/.gitconfig # $HOME expansion not supported in gitconfig, need absolute path

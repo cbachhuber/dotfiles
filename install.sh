@@ -71,14 +71,11 @@ install_programs() {
 
     sudo apt update && sudo apt upgrade
 
-    # Media playback and recording
-    sudo apt install -y vlc kazam ubuntu-restricted-extras
-
     # Other tools
     sudo apt install -y p7zip-full htop iotop bmon
 
     # Essential dev tools
-    sudo apt install -y neovim zsh git terminator curl python3-dev python3-pip python3-setuptools build-essential cmake libgtest-dev tree
+    sudo apt install -y neovim zsh git terminator curl build-essential tree
     sudo apt install -y powerline fonts-powerline
 }
 
@@ -144,13 +141,6 @@ configure_oh_my_zsh() {
 
     ln -s "$CONFIG_FOLDER"/zshrc ~/.zshrc
     echo "Feel free to try out zsh by opening a new terminal (if you made zsh your default shell), or by executing 'zsh' in this terminal. powerlevel10k will ask you a couple of questions on the first zsh start."
-}
-
-configure_i3() {
-    sudo apt install i3 rofi
-    ln -s ~/.dotfiles/config/i3_config config
-    ln -s ~/.dotfiles/config/i3_statusconfig statusconfig
-    echo "Now, log out. In the login screen, choose i3 as window manager"
 }
 
 if [ "$PROGRAMS" = true ]; then install_programs; fi

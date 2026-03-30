@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 
-The script and config files in this folder allow you to quickly set up your Ubuntu installation with a reasonable developer configuration. Tested for Ubuntu 18.04 LTS. Most of the offered functionality also tested for Ubuntu 20.04 LTS, see section [Compatibility](#compatibility).
+The script and config files in this folder allow you to quickly set up your Ubuntu installation with a reasonable developer configuration. See section [Compatibility](#compatibility) for supported OSs.
 
 ## Downloading
 

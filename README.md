@@ -7,25 +7,15 @@ The script and config files in this folder allow you to quickly set up your Ubun
 
 ## Downloading
 
-I suggest cloning this repository to `~/.dotfiles`, though any other location will work as well. Just make sure to not move the folder after you started relying on the dotfiles in it.
+Clone the repository and run
 
 ```shell
-git clone https://github.com/cbachhuber/dotfiles-and-post-installation-scripts.git ~/.dotfiles
+./install.sh
 ```
-
-## Installation
-
-Execute script `setup.sh` in the toplevel folder of this repository
-
-```shell
-.dotfiles/setup.sh
-```
-
-You will be asked to enter your sudo password for the apt operations.
 
 ### Setup arguments
 
-By default, `setup.sh` will work through all setup steps such a program installation, git configuration etc.
+By default, [install.sh](./install.sh) will work through all setup steps such a program installation, git configuration etc.
 If you only want select a subset of these steps, use the below flags.
 As soon as a flag is given, the other steps are not implicitly executed, they need to be called explicitly per flag as well.
 

@@ -1,12 +1,7 @@
-FROM ubuntu:18.04 as base
+FROM ubuntu:24.04
 
-RUN apt update
-RUN apt upgrade
-RUN apt install -y git sudo
+RUN apt update && apt install -y git sudo
 
 RUN useradd -ms /bin/bash testuser && echo "testuser:a" | chpasswd && adduser testuser sudo
 USER testuser
 WORKDIR /home/testuser
-
-RUN git clone https://github.com/cbachhuber/dotfiles-and-post-installation-scripts.git ~/.dotfiles
-

@@ -10,6 +10,8 @@ fi
 CONFIGURE_GIT=false
 CONFIGURE_VIM=false
 CONFIGURE_ZSH=false
+DEBIAN_FRONTEND=noninteractive
+
 
 # Let the user clone this repo to any location
 DOTFILES_PATH="$(
@@ -68,10 +70,6 @@ configure_git() {
         sudo apt install -y git-delta
     fi
 
-    read -r -p "Enter your git user name (your full name, e.g. 'Max Maier': " GIT_NAME
-    read -r -p "Enter your git mail address: " GIT_MAIL
-    git config --global user.name "$GIT_NAME"
-    git config --global user.email "$GIT_MAIL"
     git config --global core.excludesFile "$CONFIG_FOLDER"/global_gitignore
     echo "[include]
     	path = /home/$(whoami)/.dotfiles/config/gitconfig" >>~/.gitconfig # $HOME expansion not supported in gitconfig, need absolute path

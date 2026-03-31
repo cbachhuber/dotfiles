@@ -109,7 +109,8 @@ configure_oh_my_zsh() {
     sudo -E apt install -y zsh wget powerline fonts-powerline
 
     # Download and install oh-my-zsh, but do not yet run it (would break this script)
-    RUNZSH=no sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    RUNZSH=no sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended --keep-zshrc"
+    sudo chsh -s $(which zsh) # Set zsh as default shell
     ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
     # Use oh-my-zsh to install zsh plugins

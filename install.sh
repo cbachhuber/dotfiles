@@ -66,14 +66,15 @@ configure_git() {
     echo "Configuring git"
     sudo -E apt update && sudo -E apt install -y git lsb-release
 
+    git config --global core.excludesFile "$CONFIG_FOLDER"/global_gitignore
     UBUNTU_VERSION=$(lsb_release -rs | cut -d. -f1)
     if [ "$UBUNTU_VERSION" -ge 24 ]; then
         sudo -E apt install -y git-delta
+
+        echo "[include]
+        	path = "$CONFIG_FOLDER"/gitconfig" >>~/.gitconfig # $HOME expansion not supported in gitconfig, need absolute path
     fi
 
-    git config --global core.excludesFile "$CONFIG_FOLDER"/global_gitignore
-    echo "[include]
-    	path = "$CONFIG_FOLDER"/gitconfig" >>~/.gitconfig # $HOME expansion not supported in gitconfig, need absolute path
 }
 
 configure_neovim() {

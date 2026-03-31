@@ -8,11 +8,6 @@ if [ "$EUID" = 0 ]; then
 fi
 
 export DEBIAN_FRONTEND=noninteractive 
-CONFIGURE_GIT=false
-CONFIGURE_VIM=false
-CONFIGURE_ZSH=false
-
-
 
 # Let the user clone this repo to any location
 DOTFILES_PATH="$(
@@ -20,47 +15,6 @@ DOTFILES_PATH="$(
     pwd -P
 )"
 CONFIG_FOLDER="$DOTFILES_PATH/config"
-
-POSITIONAL=()
-while [[ $# -gt 0 ]]; do
-    key="$1"
-    case $key in
-        -g | --configure-git)
-            CONFIGURE_GIT=true
-            shift # past argument
-            ;;
-        -v | --configure-vim)
-            CONFIGURE_VIM=true
-            shift # past argument
-            ;;
-        -z | --configure-zsh)
-            CONFIGURE_ZSH=true
-            shift # past argument
-            ;;
-        -h | --help)
-            printf "Usage: %s [-g] [-z] [-v]\n
-This script sets up your OS with a reasonable config and programs. 
-Via flags, you have the option to execute a subset of the script steps. 
-For more details, see README.md.\n
--g      Git configuration
--v      Neovim configuration
--z      Oh-my-zsh configuration\n" "$0"
-            exit 0
-            ;;
-        *)                     # unknown option
-            POSITIONAL+=("$1") # save it in an array for later
-            shift              # past argument
-            ;;
-    esac
-done
-set -- "${POSITIONAL[@]}" # restore positional parameters
-
-if [ "$CONFIGURE_GIT" = false ] &&
-   [ "$CONFIGURE_ZSH" = false ] && [ "$CONFIGURE_VIM" = false ]; then
-    CONFIGURE_GIT=true
-    CONFIGURE_ZSH=true
-    CONFIGURE_VIM=true
-fi
 
 configure_git() {
     echo "Configuring git"
@@ -130,8 +84,8 @@ configure_oh_my_zsh() {
     echo "Feel free to try out zsh by opening a new terminal (it's now your default shell), or by executing 'zsh' in this terminal. powerlevel10k will ask you a couple of questions on the first zsh start."
 }
 
-if [ "$CONFIGURE_GIT" = true ]; then configure_git; fi
-if [ "$CONFIGURE_VIM" = true ]; then configure_neovim; fi
-if [ "$CONFIGURE_ZSH" = true ]; then configure_oh_my_zsh; fi
+configure_git
+configure_neovim
+configure_oh_my_zsh
 
 exit 0

@@ -21,11 +21,6 @@ jobs:
         run: |
           useradd -m -s /bin/bash testuser
           echo 'testuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-    #   - name: Preconfigure tzdata for noninteractive install
-    #     run: |
-    #       apt install -y debconf-utils
-    #       echo "tzdata tzdata/Areas select Etc" | debconf-set-selections
-    #       echo "tzdata tzdata/Zones/Etc select UTC" | debconf-set-selections
       - name: Clone repository and run install script
         run: |
           su - testuser -c "

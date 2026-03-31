@@ -14,7 +14,7 @@ Clone the repository and run
 
 ### Setup arguments
 
-By default, [install.sh](./install.sh) will work through all setup steps such a zsh, git, and vim configuration.
+By default, [install.sh](./install.sh) will work through all setup steps for zsh, git, and vim.
 If you only want select a subset of these steps, use the below flags.
 As soon as a flag is given, the other steps are not implicitly executed, they need to be called explicitly per flag as well.
 

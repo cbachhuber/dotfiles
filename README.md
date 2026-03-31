@@ -20,12 +20,12 @@ As soon as a flag is given, the other steps are not implicitly executed, they ne
 
 - Flag `-g` or `--configure-git` guides you through common git configuration steps such as setting up your git user name and mail, git pager, global excludesFile, and git aliases.
 - Flag `-v` or `--configure-vim` guides you through common [neovim](https://github.com/neovim/neovim) configuration steps such as sourcing `~/.zshrc` and installing essential plugins such as [vim-fugitive](https://github.com/tpope/vim-fugitive), [vim-airline](https://github.com/vim-airline/vim-airline), and [vim-nerdtree](https://github.com/scrooloose/nerdtree).
-- Flag `-z` or `--configure-zsh` guides you through common zsh and [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) configuration steps such as setting zsh as your default shell and installing oh-my-zsh plugins such as [Powerlevel 10k](https://github.com/romkatv/powerlevel10k) and [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions).
+- Flag `-z` or `--configure-zsh` performs common zsh and [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh) configuration steps such as setting zsh as your default shell and installing oh-my-zsh plugins such as [Powerlevel 10k](https://github.com/romkatv/powerlevel10k), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), and more.
 - Flag `-h` or `--help` displays a help menu and exits the script.
 
 ## Compatibility
 
-|              |      Git         |         Vim      |        ZSH       |
+|              |      git         |         vim      |        zsh       |
 |--------------|------------------|------------------|------------------|
 | Ubuntu 22.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | Ubuntu 24.04 |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|

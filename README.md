@@ -6,7 +6,7 @@
 The script and config files in this folder allow you to quickly set up your Ubuntu installation with a reasonable developer configuration.
 Works on Ubuntu 22.04 and 24.04, see [CI config](./.github/workflows/test-install.yml) for details.
 
-## Downloading
+## Installation
 
 Clone the repository and run
 

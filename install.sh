@@ -84,8 +84,17 @@ configure_oh_my_zsh() {
     echo "Feel free to try out zsh by opening a new terminal (it's now your default shell), or by executing 'zsh' in this terminal. powerlevel10k will ask you a couple of questions on the first zsh start."
 }
 
+configure_secrets() {
+    echo "Creating ~/.secrets for API keys and other secrets (not tracked in git)"
+    if [ ! -f ~/.secrets ]; then
+        touch ~/.secrets
+        chmod 600 ~/.secrets
+    fi
+}
+
 configure_git
 configure_neovim
 configure_oh_my_zsh
+configure_secrets
 
 exit 0

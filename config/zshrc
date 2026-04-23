@@ -168,3 +168,6 @@ function ff(){
 
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# Secrets (API keys, tokens, etc.) — not tracked in git
+[[ -f ~/.secrets ]] && source ~/.secrets
